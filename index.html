@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akhtar & Sons Garage | Premium Pre-Owned Vehicles Qatar</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -12,9 +11,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
-                    <!-- Logo Container - Easily replaceable -->
                     <div class="logo-container">
-                        <img id="garageLogo" class="logo-image" src="" alt="Garage Logo">
+                        <img id="garageLogo" class="logo-image" src="logo.png" alt="Garage Logo">
                     </div>
                     <div class="garage-info">
                         <h1 class="garage-name">Akhtar & Sons Garage</h1>
@@ -22,27 +20,13 @@
                     </div>
                 </div>
                 <div id="authSection" class="auth-section">
-                    <!-- Google Sign In Button -->
-                    <div id="g_id_onload"
-                         data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
-                         data-callback="handleCredentialResponse"
-                         data-auto_prompt="false">
-                    </div>
-                    <div class="g_id_signin" 
-                         data-type="standard"
-                         data-size="large"
-                         data-theme="outline"
-                         data-text="sign_in_with"
-                         data-shape="rectangular"
-                         data-logo_alignment="left">
-                    </div>
+                    <button id="loginBtn" class="btn-login">🔐 Admin Login</button>
                 </div>
                 <div id="userSection" class="user-section hidden">
                     <div class="user-info">
-                        <img id="userPhoto" class="user-photo" src="" alt="User">
-                        <span id="userName" class="user-name"></span>
+                        <span class="user-name">👤 Admin</span>
                     </div>
-                    <button id="adminToggle" class="btn-admin hidden">⚙️ Admin Mode</button>
+                    <button id="adminToggle" class="btn-admin">⚙️ Admin Mode</button>
                     <button id="logoutBtn" class="btn-logout">Logout</button>
                 </div>
             </div>
@@ -95,8 +79,17 @@
             <div class="logo-upload-section">
                 <h3>🎨 Change Garage Logo</h3>
                 <div class="logo-upload-content">
-                    <input type="file" id="logoUpload" accept="image/*" class="file-input">
+                    <input type="file" id="logoUpload" accept="*" class="file-input">
                     <p class="upload-hint">Upload your custom logo (PNG, JPG, or SVG recommended)</p>
+                </div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="password-section">
+                <h3>🔑 Change Admin Password</h3>
+                <div class="password-content">
+                    <input type="password" id="newPassword" placeholder="New Password" class="input-field">
+                    <button id="changePasswordBtn" class="btn btn-primary">Update Password</button>
                 </div>
             </div>
         </div>
@@ -140,6 +133,23 @@
             <p class="footer-copyright">© 2024 All Rights Reserved</p>
         </div>
     </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔐 Admin Login</h3>
+                <button id="closeLoginModal" class="btn-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <input type="password" id="loginPassword" placeholder="Enter Admin Password" class="input-field" autocomplete="current-password">
+                <p class="login-hint">Default password: <strong>admin123</strong> (Change it after first login!)</p>
+            </div>
+            <div class="modal-footer">
+                <button id="submitLogin" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Edit Modal -->
     <div id="editModal" class="modal hidden">
@@ -258,6 +268,23 @@
             gap: 1rem;
         }
 
+        .btn-login {
+            padding: 0.75rem 1.5rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
         .user-section {
             display: flex;
             align-items: center;
@@ -272,13 +299,6 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 0.5rem 1rem;
             border-radius: 9999px;
-        }
-
-        .user-photo {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: 2px solid #fbbf24;
         }
 
         .user-name {
@@ -549,6 +569,32 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+        }
+
+        /* Password Section */
+        .password-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .password-content {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .password-content .input-field {
+            flex: 1;
+            min-width: 200px;
         }
 
         /* Page Title */
@@ -923,6 +969,15 @@
             margin-bottom: 1rem;
         }
 
+        .login-hint {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #fef3c7;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #92400e;
+        }
+
         .modal-footer {
             padding: 1.5rem;
             border-top: 1px solid #e5e7eb;
@@ -964,7 +1019,7 @@
     <script>
         // Configuration - Update these values
         const CONFIG = {
-            AUTHORIZED_EMAILS: ['your-email@gmail.com', 'admin@example.com'], // Add authorized admin emails here
+            DEFAULT_PASSWORD: 'admin123', // Default password (change after first login!)
             WHATSAPP_NUMBER: '97400000000', // Your WhatsApp number with country code
             DEFAULT_LOGO: 'data:image/svg+xml,' + encodeURIComponent(`
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -976,8 +1031,9 @@
         };
 
         // Global state
-        let currentUser = null;
+        let isLoggedIn = false;
         let isAdminMode = false;
+        let adminPassword = CONFIG.DEFAULT_PASSWORD;
         let cars = [
             {
                 id: 1,
@@ -1020,42 +1076,56 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            loadSettings();
             loadLogo();
             renderCars();
         });
 
-        // Google Sign-In Handler
-        function handleCredentialResponse(response) {
-            const userData = parseJwt(response.credential);
-            
-            if (CONFIG.AUTHORIZED_EMAILS.includes(userData.email)) {
-                currentUser = userData;
-                showUserSection();
-                document.getElementById('adminToggle').classList.remove('hidden');
-            } else {
-                alert('Unauthorized access. Only garage admins can sign in.');
-                return;
+        // Load settings from memory
+        function loadSettings() {
+            const savedPassword = sessionStorage.getItem('adminPassword');
+            if (savedPassword) {
+                adminPassword = savedPassword;
             }
         }
 
-        function parseJwt(token) {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => 
-                '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-            ).join(''));
-            return JSON.parse(jsonPayload);
+        // Save settings to memory
+        function saveSettings() {
+            sessionStorage.setItem('adminPassword', adminPassword);
+        }
+
+        // Login/Logout Functions
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginPassword').focus();
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+
+        function submitLogin() {
+            const password = document.getElementById('loginPassword').value;
+            
+            if (password === adminPassword) {
+                isLoggedIn = true;
+                closeLoginModal();
+                showUserSection();
+            } else {
+                alert('❌ Incorrect password!');
+                document.getElementById('loginPassword').value = '';
+                document.getElementById('loginPassword').focus();
+            }
         }
 
         function showUserSection() {
             document.getElementById('authSection').classList.add('hidden');
             document.getElementById('userSection').classList.remove('hidden');
-            document.getElementById('userName').textContent = currentUser.name;
-            document.getElementById('userPhoto').src = currentUser.picture;
         }
 
         function logout() {
-            currentUser = null;
+            isLoggedIn = false;
             isAdminMode = false;
             document.getElementById('authSection').classList.remove('hidden');
             document.getElementById('userSection').classList.add('hidden');
@@ -1064,9 +1134,29 @@
             renderCars();
         }
 
+        // Password Change
+        function changePassword() {
+            const newPassword = document.getElementById('newPassword').value.trim();
+            
+            if (!newPassword) {
+                alert('⚠️ Please enter a new password!');
+                return;
+            }
+
+            if (newPassword.length < 6) {
+                alert('⚠️ Password must be at least 6 characters!');
+                return;
+            }
+
+            adminPassword = newPassword;
+            saveSettings();
+            document.getElementById('newPassword').value = '';
+            alert('✅ Password updated successfully!');
+        }
+
         // Logo Management
         function loadLogo() {
-            const savedLogo = localStorage.getItem('garageLogo') || CONFIG.DEFAULT_LOGO;
+            const savedLogo = sessionStorage.getItem('garageLogo') || CONFIG.DEFAULT_LOGO;
             document.getElementById('garageLogo').src = savedLogo;
         }
 
@@ -1076,15 +1166,21 @@
                 const reader = new FileReader();
                 reader.onload = (event) => {
                     const logoData = event.target.result;
-                    localStorage.setItem('garageLogo', logoData);
+                    sessionStorage.setItem('garageLogo', logoData);
                     document.getElementById('garageLogo').src = logoData;
-                    alert('Logo updated successfully!');
+                    alert('✅ Logo updated successfully!');
                 };
                 reader.readAsDataURL(file);
             }
         });
 
         // Event Listeners
+        document.getElementById('loginBtn')?.addEventListener('click', showLoginModal);
+        document.getElementById('closeLoginModal')?.addEventListener('click', closeLoginModal);
+        document.getElementById('submitLogin')?.addEventListener('click', submitLogin);
+        document.getElementById('loginPassword')?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') submitLogin();
+        });
         document.getElementById('logoutBtn')?.addEventListener('click', logout);
         document.getElementById('adminToggle')?.addEventListener('click', toggleAdminMode);
         document.getElementById('showAddForm')?.addEventListener('click', () => 
@@ -1092,6 +1188,7 @@
         );
         document.getElementById('cancelAddCar')?.addEventListener('click', closeAddForm);
         document.getElementById('saveNewCar')?.addEventListener('click', saveNewCar);
+        document.getElementById('changePasswordBtn')?.addEventListener('click', changePassword);
         document.getElementById('whatsappBtn')?.addEventListener('click', () => 
             window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}`, '_blank')
         );
@@ -1103,7 +1200,7 @@
 
         // Functions
         function toggleAdminMode() {
-            if (!currentUser) return;
+            if (!isLoggedIn) return;
             
             isAdminMode = !isAdminMode;
             const adminToggle = document.getElementById('adminToggle');
@@ -1171,7 +1268,7 @@
             const status = document.getElementById('newStatus').value;
 
             if (!brand || !model || !year || !chassis || !price) {
-                alert('Please fill all required fields!');
+                alert('⚠️ Please fill all required fields!');
                 return;
             }
 
@@ -1190,12 +1287,14 @@
             cars.push(newCar);
             renderCars();
             closeAddForm();
+            alert('✅ Car added successfully!');
         }
 
         function deleteCar(id) {
             if (confirm('Are you sure you want to delete this car?')) {
                 cars = cars.filter(car => car.id !== id);
                 renderCars();
+                alert('✅ Car deleted successfully!');
             }
         }
 
@@ -1259,7 +1358,7 @@
             const status = document.getElementById('editStatus').value;
 
             if (!brand || !model || !year || !chassis || !price) {
-                alert('Please fill all required fields!');
+                alert('⚠️ Please fill all required fields!');
                 return;
             }
 
@@ -1281,6 +1380,7 @@
 
             renderCars();
             closeEditModal();
+            alert('✅ Car updated successfully!');
         }
 
         function changeCarImage(id, direction) {
