@@ -1,280 +1,1380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akhtar & Sons Garage - Car Listings</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;700&display=swap');
-        
-        body {
-            font-family: 'Alexandria', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-
-        /* Styles for the new logo */
-        .main-logo {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            margin-right: 1rem;
-            border-radius: 50%;
-            background: white;
-            padding: 2px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 2rem;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .card-header {
-            background: linear-gradient(135deg, #0a4d8c 0%, #1e6ec7 100%);
-            color: white;
-            padding: 1.5rem;
-        }
-        
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 0.35rem 0.85rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .badge-available {
-            background-color: #e6f7e5;
-            color: #0d9460;
-        }
-        
-        .badge-sold {
-            background-color: #fde8e8;
-            color: #dc2626;
-        }
-        
-        .spec-item {
-            display: flex;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eaeaea;
-        }
-        
-        .spec-label {
-            font-weight: 600;
-            color: #1e40af;
-            min-width: 120px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-right: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .price-btn {
-            background-color: #f59e0b;
-            color: white;
-        }
-        
-        .price-btn:hover {
-            background-color: #d97706;
-        }
-        
-        .sold-btn {
-            background-color: #dc2626;
-            color: white;
-        }
-        
-        .sold-btn:hover {
-            background-color: #b91c1c;
-        }
-        
-        .available-btn {
-            background-color: #10b981;
-            color: white;
-        }
-        
-        .available-btn:hover {
-            background-color: #059669;
-        }
-        
-        .header-logo-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .car-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .thumbnail {
-            width: 100%;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        
-        .thumbnail:hover {
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 768px) {
-            .spec-item {
-                flex-direction: column;
-            }
-            
-            .spec-label {
-                margin-bottom: 0.3rem;
-                min-width: auto;
-            }
-            
-            .image-gallery {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    </style>
+    <title>Akhtar & Sons Garage | Premium Pre-Owned Vehicles Qatar</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
-<body class="container mx-auto px-4 py-8">
-    <header class="text-center mb-12">
-        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="Akhtar & Sons Garage Logo" class="main-logo">
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Akhtar & Sons Garage</h1>
-        <p class="text-xl text-gray-600">Premium Automotive Sales in Doha, Qatar</p>
-        <div class="mt-4 text-sm text-gray-500">كراج أختر وأولاده</div>
-    </header>
-    
-    <main>
-        <div class="grid grid-cols-1 gap-8">
-            <div class="card">
-                <div class="card-header">
-                    <div class="header-logo-container">
-                        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="ASG Logo" class="card-logo">
-                        <div>
-                            <h2 class="text-2xl font-bold">Toyota Land Cruiser GXR</h2>
-                            <p class="text-blue-200">2024 Model Year</p>
-                        </div>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <!-- Logo Container - Easily replaceable -->
+                    <div class="logo-container">
+                        <img id="garageLogo" class="logo-image" src="" alt="Garage Logo">
+                    </div>
+                    <div class="garage-info">
+                        <h1 class="garage-name">Akhtar & Sons Garage</h1>
+                        <p class="garage-name-arabic">كراج أختر وأولاده</p>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="image-gallery">
-                        <img src="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=400&q=80" alt="Toyota Land Cruiser Front" class="thumbnail active" data-full="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=1200&q=80">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=400&q=80" alt="Toyota Land Cruiser Side" class="thumbnail" data-full="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80">
+                <div id="authSection" class="auth-section">
+                    <!-- Google Sign In Button -->
+                    <div id="g_id_onload"
+                         data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+                         data-callback="handleCredentialResponse"
+                         data-auto_prompt="false">
                     </div>
-                    <img id="mainCarImage1" src="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=1200&q=80" alt="Toyota Land Cruiser GXR 2024" class="car-image">
-                    
-                    <div class="flex flex-wrap mb-6">
-                        <span class="badge badge-available">🟢 AVAILABLE</span>
+                    <div class="g_id_signin" 
+                         data-type="standard"
+                         data-size="large"
+                         data-theme="outline"
+                         data-text="sign_in_with"
+                         data-shape="rectangular"
+                         data-logo_alignment="left">
                     </div>
-                    
-                    <div class="spec-item">
-                        <span class="spec-label">Brand:</span>
-                        <span class="ml-auto">Toyota</span>
+                </div>
+                <div id="userSection" class="user-section hidden">
+                    <div class="user-info">
+                        <img id="userPhoto" class="user-photo" src="" alt="User">
+                        <span id="userName" class="user-name"></span>
                     </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Model:</span>
-                        <span class="ml-auto">Land Cruiser GXR</span>
-                    </div>
-                    
-                    <div class="mt-6">
-                        <h3 class="font-bold text-lg mb-3 text-blue-800">Location:</h3>
-                        <p class="mb-1">Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
-                        <p class="text-sm text-gray-600">كراج أختر وأولاده، منطقة صناعية، بوابة ١٦، شارع ١٩، الدوحة، قطر</p>
-                    </div>
-                    
-                    <div class="mt-8 flex flex-wrap">
-                        <button class="btn available-btn">🟢 AVAILABLE</button>
-                        <button class="btn price-btn">💰 VIEW PRICE</button>
-                    </div>
+                    <button id="adminToggle" class="btn-admin hidden">⚙️ Admin Mode</button>
+                    <button id="logoutBtn" class="btn-logout">Logout</button>
                 </div>
             </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div class="header-logo-container">
-                        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="ASG Logo" class="card-logo">
-                        <div>
-                            <h2 class="text-2xl font-bold">Nissan Patrol Safari</h2>
-                            <p class="text-blue-200">2023 Model Year</p>
-                        </div>
-                    </div>
+            <div class="location-badge">
+                <p>📍 Street 19, Gate 16 | Industrial Area, Doha, Qatar</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel hidden">
+            <div class="admin-header">
+                <h2>🔧 Admin Panel</h2>
+                <button id="showAddForm" class="btn-add">➕ Add New Car</button>
+            </div>
+
+            <!-- Add Car Form -->
+            <div id="addCarForm" class="add-form hidden">
+                <h3>➕ Add New Vehicle</h3>
+                <div class="form-grid">
+                    <input type="text" id="newBrand" placeholder="Brand (e.g., Toyota)" class="input-field">
+                    <input type="text" id="newModel" placeholder="Model (e.g., Land Cruiser)" class="input-field">
+                    <input type="text" id="newYear" placeholder="Year (e.g., 2024)" class="input-field">
+                    <input type="text" id="newChassis" placeholder="Chassis Number" class="input-field">
+                    <input type="number" id="newPrice" placeholder="Price (QAR)" class="input-field">
+                    <select id="newStatus" class="input-field">
+                        <option value="available">Available</option>
+                        <option value="sold">Sold</option>
+                    </select>
                 </div>
-                <div class="card-body">
-                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80" alt="Nissan Patrol Safari 2023" class="car-image">
-                    
-                    <div class="mt-6">
-                        <h3 class="font-bold text-lg mb-3 text-blue-800">Location:</h3>
-                        <p class="mb-1">Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
-                        <p class="text-sm text-gray-600">كراج أختر وأولاده، منطقة صناعية، بوابة ١٦، شارع ١٩، الدوحة، قطر</p>
-                    </div>
-                    
-                    <div class="mt-8 flex flex-wrap">
-                        <button class="btn available-btn">🟢 AVAILABLE</button>
-                        <button class="btn price-btn">💰 VIEW PRICE</button>
-                    </div>
+
+                <div class="upload-section">
+                    <label class="upload-label">📸 Upload Photos (from phone or computer)</label>
+                    <input type="file" id="newImages" accept="image/*" multiple capture="environment" class="file-input">
+                    <p class="upload-hint">📱 Mobile users: Click to use camera or select from gallery</p>
+                </div>
+
+                <div id="newImagePreview" class="image-preview-grid"></div>
+
+                <div class="form-actions">
+                    <button id="saveNewCar" class="btn btn-primary">💾 Save Car</button>
+                    <button id="cancelAddCar" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Logo Upload Section -->
+            <div class="logo-upload-section">
+                <h3>🎨 Change Garage Logo</h3>
+                <div class="logo-upload-content">
+                    <input type="file" id="logoUpload" accept="image/*" class="file-input">
+                    <p class="upload-hint">Upload your custom logo (PNG, JPG, or SVG recommended)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Title Section -->
+        <div class="page-title">
+            <h2>Premium Pre-Owned Vehicles</h2>
+            <p>Certified Quality • Verified Chassis • Trusted in Qatar</p>
+        </div>
+
+        <!-- Car Listings -->
+        <div id="carListings" class="car-grid"></div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 class="contact-title">Contact Us</h2>
+            <p class="contact-subtitle-arabic">تواصل معنا اليوم</p>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <h3>📍 Visit Our Garage</h3>
+                    <p>Street 19, Gate 16</p>
+                    <p>Industrial Area</p>
+                    <p class="font-bold">Doha, Qatar</p>
+                </div>
+                <div class="contact-card">
+                    <h3>📞 Get In Touch</h3>
+                    <button id="whatsappBtn" class="btn-whatsapp">
+                        💬 WhatsApp Us
+                    </button>
+                    <p class="whatsapp-hint">Click to connect instantly</p>
                 </div>
             </div>
         </div>
     </main>
-    
-    <footer class="mt-12 text-center text-gray-600 pb-8">
-        <p>© 2026 Akhtar & Sons Garage. All rights reserved.</p>
-        <div class="mt-2">
-            <p>Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
-            <p>Phone: +974 XXXXXXXX</p>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-name">Akhtar & Sons Garage</p>
+            <p class="footer-name-arabic">كراج أختر وأولاده</p>
+            <p class="footer-copyright">© 2024 All Rights Reserved</p>
         </div>
     </footer>
 
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>✏️ Edit Vehicle</h3>
+                <button id="closeModal" class="btn-close">✕</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editBrand" placeholder="Brand" class="input-field">
+                <input type="text" id="editModel" placeholder="Model" class="input-field">
+                <input type="text" id="editYear" placeholder="Year" class="input-field">
+                <input type="text" id="editChassis" placeholder="Chassis" class="input-field">
+                <input type="number" id="editPrice" placeholder="Price (QAR)" class="input-field">
+                <select id="editStatus" class="input-field">
+                    <option value="available">Available</option>
+                    <option value="sold">Sold</option>
+                </select>
+                <div class="upload-section">
+                    <label class="upload-label">📸 Add More Photos</label>
+                    <input type="file" id="editImages" accept="image/*" multiple capture="environment" class="file-input">
+                </div>
+                <div id="editImagePreview" class="image-preview-grid"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveEdit" class="btn btn-primary">💾 Save Changes</button>
+                <button id="cancelEdit" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            width: 64px;
+            height: 64px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .garage-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .garage-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .garage-name-arabic {
+            font-size: 1rem;
+            color: #fbbf24;
+            direction: rtl;
+        }
+
+        /* Auth Section */
+        .auth-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+        }
+
+        .user-photo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid #fbbf24;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .btn-admin {
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .btn-admin.active {
+            background-color: #ef4444;
+        }
+
+        .btn-admin.active:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-admin:not(.active) {
+            background-color: #3b82f6;
+        }
+
+        .btn-admin:not(.active):hover {
+            background-color: #2563eb;
+        }
+
+        .btn-logout {
+            padding: 0.5rem 1rem;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: #dc2626;
+        }
+
+        .location-badge {
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .location-badge p {
+            font-size: 0.875rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            background: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .admin-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .btn-add {
+            background: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .add-form {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .add-form h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            width: 100%;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .upload-section {
+            margin-bottom: 1rem;
+        }
+
+        .upload-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-input {
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            width: 100%;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .file-input:hover {
+            border-color: #3b82f6;
+        }
+
+        .upload-hint {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-item {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .preview-item:hover .remove-image {
+            opacity: 1;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: #d1d5db;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #9ca3af;
+        }
+
+        /* Logo Upload Section */
+        .logo-upload-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-upload-section h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .logo-upload-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title p {
+            font-size: 1.25rem;
+            color: #6b7280;
+        }
+
+        /* Car Grid */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 500px) {
+            .car-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .car-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .car-image-container {
+            position: relative;
+            height: 250px;
+            background: #1f2937;
+            overflow: hidden;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .car-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .car-nav-btn.prev {
+            left: 1rem;
+        }
+
+        .car-nav-btn.next {
+            right: 1rem;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .status-badge.available {
+            background: #10b981;
+            color: white;
+        }
+
+        .status-badge.sold {
+            background: #ef4444;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .car-details {
+            padding: 1.5rem;
+        }
+
+        .car-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .car-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #10b981;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .detail-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .car-actions {
+            display: flex;
+            gap: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            flex-wrap: wrap;
+        }
+
+        .btn-edit {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #2563eb;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #dc2626;
+        }
+
+        .btn-whatsapp-car {
+            background: #10b981;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-whatsapp-car:hover {
+            background: #059669;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 1rem;
+            padding: 3rem 2rem;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        .contact-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle-arabic {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #fbbf24;
+            font-weight: 600;
+            direction: rtl;
+            margin-bottom: 2rem;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .btn-whatsapp {
+            background: #10b981;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-hint {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #93c5fd;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-name-arabic {
+            color: #fbbf24;
+            direction: rtl;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 1rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .btn-close {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+
+        .btn-close:hover {
+            background: #dc2626;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-body .input-field {
+            margin-bottom: 1rem;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .garage-name {
+                font-size: 1.25rem;
+            }
+
+            .page-title h2 {
+                font-size: 1.75rem;
+            }
+
+            .contact-title {
+                font-size: 1.75rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .user-section {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+
     <script>
-        // Basic interactive functionality
-        document.querySelectorAll('.thumbnail').forEach(thumb => {
-            thumb.addEventListener('click', function() {
-                const mainImg = this.closest('.card-body').querySelector('.car-image');
-                mainImg.src = this.dataset.full;
-            });
+        // Configuration - Update these values
+        const CONFIG = {
+            AUTHORIZED_EMAILS: ['your-email@gmail.com', 'admin@example.com'], // Add authorized admin emails here
+            WHATSAPP_NUMBER: '97400000000', // Your WhatsApp number with country code
+            DEFAULT_LOGO: 'data:image/svg+xml,' + encodeURIComponent(`
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="95" fill="#0f172a"/>
+                    <text x="100" y="110" font-size="80" text-anchor="middle" fill="#fbbf24" font-weight="bold">AS</text>
+                    <text x="100" y="140" font-size="20" text-anchor="middle" fill="#D4AF37">GARAGE</text>
+                </svg>
+            `)
+        };
+
+        // Global state
+        let currentUser = null;
+        let isAdminMode = false;
+        let cars = [
+            {
+                id: 1,
+                brand: 'Toyota',
+                model: 'Land Cruiser GXR',
+                year: '2024',
+                chassis: '123456',
+                price: 185000,
+                status: 'available',
+                images: ['https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800', 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800'],
+                currentImageIndex: 0
+            },
+            {
+                id: 2,
+                brand: 'Nissan',
+                model: 'Patrol Platinum',
+                year: '2023',
+                chassis: '789012',
+                price: 165000,
+                status: 'available',
+                images: ['https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800', 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=800'],
+                currentImageIndex: 0
+            },
+            {
+                id: 3,
+                brand: 'Lexus',
+                model: 'LX 570',
+                year: '2022',
+                chassis: '345678',
+                price: 145000,
+                status: 'sold',
+                images: ['https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=800'],
+                currentImageIndex: 0
+            }
+        ];
+
+        let editingCarId = null;
+        let newCarImages = [];
+        let editCarImages = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLogo();
+            renderCars();
         });
+
+        // Google Sign-In Handler
+        function handleCredentialResponse(response) {
+            const userData = parseJwt(response.credential);
+            
+            if (CONFIG.AUTHORIZED_EMAILS.includes(userData.email)) {
+                currentUser = userData;
+                showUserSection();
+                document.getElementById('adminToggle').classList.remove('hidden');
+            } else {
+                alert('Unauthorized access. Only garage admins can sign in.');
+                return;
+            }
+        }
+
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => 
+                '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+            ).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        function showUserSection() {
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('userSection').classList.remove('hidden');
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('userPhoto').src = currentUser.picture;
+        }
+
+        function logout() {
+            currentUser = null;
+            isAdminMode = false;
+            document.getElementById('authSection').classList.remove('hidden');
+            document.getElementById('userSection').classList.add('hidden');
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('adminToggle').classList.remove('active');
+            renderCars();
+        }
+
+        // Logo Management
+        function loadLogo() {
+            const savedLogo = localStorage.getItem('garageLogo') || CONFIG.DEFAULT_LOGO;
+            document.getElementById('garageLogo').src = savedLogo;
+        }
+
+        document.getElementById('logoUpload')?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const logoData = event.target.result;
+                    localStorage.setItem('garageLogo', logoData);
+                    document.getElementById('garageLogo').src = logoData;
+                    alert('Logo updated successfully!');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Event Listeners
+        document.getElementById('logoutBtn')?.addEventListener('click', logout);
+        document.getElementById('adminToggle')?.addEventListener('click', toggleAdminMode);
+        document.getElementById('showAddForm')?.addEventListener('click', () => 
+            document.getElementById('addCarForm').classList.toggle('hidden')
+        );
+        document.getElementById('cancelAddCar')?.addEventListener('click', closeAddForm);
+        document.getElementById('saveNewCar')?.addEventListener('click', saveNewCar);
+        document.getElementById('whatsappBtn')?.addEventListener('click', () => 
+            window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}`, '_blank')
+        );
+        document.getElementById('closeModal')?.addEventListener('click', closeEditModal);
+        document.getElementById('cancelEdit')?.addEventListener('click', closeEditModal);
+        document.getElementById('saveEdit')?.addEventListener('click', saveEditedCar);
+        document.getElementById('newImages')?.addEventListener('change', handleNewImageUpload);
+        document.getElementById('editImages')?.addEventListener('change', handleEditImageUpload);
+
+        // Functions
+        function toggleAdminMode() {
+            if (!currentUser) return;
+            
+            isAdminMode = !isAdminMode;
+            const adminToggle = document.getElementById('adminToggle');
+            const adminPanel = document.getElementById('adminPanel');
+            
+            if (isAdminMode) {
+                adminToggle.textContent = '👁️ View Mode';
+                adminToggle.classList.add('active');
+                adminPanel.classList.remove('hidden');
+            } else {
+                adminToggle.textContent = '⚙️ Admin Mode';
+                adminToggle.classList.remove('active');
+                adminPanel.classList.add('hidden');
+                document.getElementById('addCarForm').classList.add('hidden');
+            }
+            renderCars();
+        }
+
+        function closeAddForm() {
+            document.getElementById('addCarForm').classList.add('hidden');
+            document.getElementById('newBrand').value = '';
+            document.getElementById('newModel').value = '';
+            document.getElementById('newYear').value = '';
+            document.getElementById('newChassis').value = '';
+            document.getElementById('newPrice').value = '';
+            document.getElementById('newStatus').value = 'available';
+            document.getElementById('newImages').value = '';
+            newCarImages = [];
+            document.getElementById('newImagePreview').innerHTML = '';
+        }
+
+        function handleNewImageUpload(e) {
+            const files = Array.from(e.target.files);
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    newCarImages.push(event.target.result);
+                    renderNewImagePreview();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function renderNewImagePreview() {
+            const preview = document.getElementById('newImagePreview');
+            preview.innerHTML = newCarImages.map((img, idx) => `
+                <div class="preview-item">
+                    <img src="${img}" alt="Preview ${idx + 1}">
+                    <button class="remove-image" onclick="removeNewImage(${idx})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function removeNewImage(index) {
+            newCarImages.splice(index, 1);
+            renderNewImagePreview();
+        }
+
+        function saveNewCar() {
+            const brand = document.getElementById('newBrand').value.trim();
+            const model = document.getElementById('newModel').value.trim();
+            const year = document.getElementById('newYear').value.trim();
+            const chassis = document.getElementById('newChassis').value.trim();
+            const price = parseFloat(document.getElementById('newPrice').value);
+            const status = document.getElementById('newStatus').value;
+
+            if (!brand || !model || !year || !chassis || !price) {
+                alert('Please fill all required fields!');
+                return;
+            }
+
+            const newCar = {
+                id: Date.now(),
+                brand,
+                model,
+                year,
+                chassis,
+                price,
+                status,
+                images: [...newCarImages],
+                currentImageIndex: 0
+            };
+
+            cars.push(newCar);
+            renderCars();
+            closeAddForm();
+        }
+
+        function deleteCar(id) {
+            if (confirm('Are you sure you want to delete this car?')) {
+                cars = cars.filter(car => car.id !== id);
+                renderCars();
+            }
+        }
+
+        function openEditModal(id) {
+            editingCarId = id;
+            const car = cars.find(c => c.id === id);
+            
+            document.getElementById('editBrand').value = car.brand;
+            document.getElementById('editModel').value = car.model;
+            document.getElementById('editYear').value = car.year;
+            document.getElementById('editChassis').value = car.chassis;
+            document.getElementById('editPrice').value = car.price;
+            document.getElementById('editStatus').value = car.status;
+            
+            editCarImages = [...car.images];
+            renderEditImagePreview();
+            
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+            editingCarId = null;
+            editCarImages = [];
+            document.getElementById('editImages').value = '';
+        }
+
+        function handleEditImageUpload(e) {
+            const files = Array.from(e.target.files);
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    editCarImages.push(event.target.result);
+                    renderEditImagePreview();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function renderEditImagePreview() {
+            const preview = document.getElementById('editImagePreview');
+            preview.innerHTML = editCarImages.map((img, idx) => `
+                <div class="preview-item">
+                    <img src="${img}" alt="Edit ${idx + 1}">
+                    <button class="remove-image" onclick="removeEditImage(${idx})">✕</button>
+                </div>
+            `).join('');
+        }
+
+        function removeEditImage(index) {
+            editCarImages.splice(index, 1);
+            renderEditImagePreview();
+        }
+
+        function saveEditedCar() {
+            const brand = document.getElementById('editBrand').value.trim();
+            const model = document.getElementById('editModel').value.trim();
+            const year = document.getElementById('editYear').value.trim();
+            const chassis = document.getElementById('editChassis').value.trim();
+            const price = parseFloat(document.getElementById('editPrice').value);
+            const status = document.getElementById('editStatus').value;
+
+            if (!brand || !model || !year || !chassis || !price) {
+                alert('Please fill all required fields!');
+                return;
+            }
+
+            cars = cars.map(car => {
+                if (car.id === editingCarId) {
+                    return {
+                        ...car,
+                        brand,
+                        model,
+                        year,
+                        chassis,
+                        price,
+                        status,
+                        images: [...editCarImages]
+                    };
+                }
+                return car;
+            });
+
+            renderCars();
+            closeEditModal();
+        }
+
+        function changeCarImage(id, direction) {
+            const car = cars.find(c => c.id === id);
+            if (!car || car.images.length === 0) return;
+
+            car.currentImageIndex = (car.currentImageIndex + direction + car.images.length) % car.images.length;
+            
+            const imageElement = document.querySelector(`#car-${id} .car-image`);
+            const counterElement = document.querySelector(`#car-${id} .image-counter`);
+            
+            if (imageElement) {
+                imageElement.src = car.images[car.currentImageIndex];
+            }
+            if (counterElement) {
+                counterElement.textContent = `${car.currentImageIndex + 1} / ${car.images.length}`;
+            }
+        }
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat('en-QA', {
+                style: 'currency',
+                currency: 'QAR',
+                minimumFractionDigits: 0
+            }).format(price);
+        }
+
+        function contactAboutCar(brand, model) {
+            const message = encodeURIComponent(`Hi, I'm interested in the ${brand} ${model}. Can you provide more details?`);
+            window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        }
+
+        function renderCars() {
+            const carListings = document.getElementById('carListings');
+            carListings.innerHTML = cars.map(car => `
+                <div class="car-card" id="car-${car.id}">
+                    <div class="car-image-container">
+                        ${car.images.length > 0 ? `
+                            <img src="${car.images[car.currentImageIndex]}" alt="${car.brand} ${car.model}" class="car-image">
+                            ${car.images.length > 1 ? `
+                                <button class="car-nav-btn prev" onclick="changeCarImage(${car.id}, -1)">‹</button>
+                                <button class="car-nav-btn next" onclick="changeCarImage(${car.id}, 1)">›</button>
+                            ` : ''}
+                            <div class="image-counter">${car.currentImageIndex + 1} / ${car.images.length}</div>
+                        ` : `
+                            <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #9ca3af;">
+                                <span style="font-size: 3rem;">📷</span>
+                            </div>
+                        `}
+                        <div class="status-badge ${car.status}">
+                            ${car.status === 'available' ? '🟢 AVAILABLE' : '🔴 SOLD'}
+                        </div>
+                    </div>
+                    
+                    <div class="car-details">
+                        <h3 class="car-title">🚗 ${car.brand} ${car.model}</h3>
+                        ${car.status === 'available' ? `
+                            <div class="car-price">💰 ${formatPrice(car.price)}</div>
+                        ` : ''}
+                        <div class="details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Brand</span>
+                                <span class="detail-value">${car.brand}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Model</span>
+                                <span class="detail-value">${car.model}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Year</span>
+                                <span class="detail-value">${car.year}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Chassis</span>
+                                <span class="detail-value">${car.chassis}</span>
+                            </div>
+                        </div>
+                        
+                        ${isAdminMode ? `
+                            <div class="car-actions">
+                                <button class="btn btn-edit" onclick="openEditModal(${car.id})">✏️ Edit</button>
+                                <button class="btn btn-delete" onclick="deleteCar(${car.id})">🗑️ Delete</button>
+                            </div>
+                        ` : car.status === 'available' ? `
+                            <div class="car-actions">
+                                <button class="btn btn-whatsapp-car" onclick="contactAboutCar('${car.brand}', '${car.model}')">
+                                    💬 Contact Us
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
     </script>
 </body>
 </html>
