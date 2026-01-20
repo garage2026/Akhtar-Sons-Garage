@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhtar & Sons Garage - Car Listings</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Alexandria', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Styles for the new logo */
+        .main-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-right: 1rem;
+            border-radius: 50%;
+            background: white;
+            padding: 2px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #0a4d8c 0%, #1e6ec7 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .badge-available {
+            background-color: #e6f7e5;
+            color: #0d9460;
+        }
+        
+        .badge-sold {
+            background-color: #fde8e8;
+            color: #dc2626;
+        }
+        
+        .spec-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: #1e40af;
+            min-width: 120px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .price-btn {
+            background-color: #f59e0b;
+            color: white;
+        }
+        
+        .price-btn:hover {
+            background-color: #d97706;
+        }
+        
+        .sold-btn {
+            background-color: #dc2626;
+            color: white;
+        }
+        
+        .sold-btn:hover {
+            background-color: #b91c1c;
+        }
+        
+        .available-btn {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .available-btn:hover {
+            background-color: #059669;
+        }
+        
+        .header-logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .spec-item {
+                flex-direction: column;
+            }
+            
+            .spec-label {
+                margin-bottom: 0.3rem;
+                min-width: auto;
+            }
+            
+            .image-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="container mx-auto px-4 py-8">
+    <header class="text-center mb-12">
+        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="Akhtar & Sons Garage Logo" class="main-logo">
+        <h1 class="text-4xl font-bold text-blue-900 mb-2">Akhtar & Sons Garage</h1>
+        <p class="text-xl text-gray-600">Premium Automotive Sales in Doha, Qatar</p>
+        <div class="mt-4 text-sm text-gray-500">كراج أختر وأولاده</div>
+    </header>
+    
+    <main>
+        <div class="grid grid-cols-1 gap-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-logo-container">
+                        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="ASG Logo" class="card-logo">
+                        <div>
+                            <h2 class="text-2xl font-bold">Toyota Land Cruiser GXR</h2>
+                            <p class="text-blue-200">2024 Model Year</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="image-gallery">
+                        <img src="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=400&q=80" alt="Toyota Land Cruiser Front" class="thumbnail active" data-full="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=1200&q=80">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=400&q=80" alt="Toyota Land Cruiser Side" class="thumbnail" data-full="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80">
+                    </div>
+                    <img id="mainCarImage1" src="https://images.unsplash.com/photo-1617814076231-2c2fabcd14e0?auto=format&fit=crop&w=1200&q=80" alt="Toyota Land Cruiser GXR 2024" class="car-image">
+                    
+                    <div class="flex flex-wrap mb-6">
+                        <span class="badge badge-available">🟢 AVAILABLE</span>
+                    </div>
+                    
+                    <div class="spec-item">
+                        <span class="spec-label">Brand:</span>
+                        <span class="ml-auto">Toyota</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Model:</span>
+                        <span class="ml-auto">Land Cruiser GXR</span>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="font-bold text-lg mb-3 text-blue-800">Location:</h3>
+                        <p class="mb-1">Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
+                        <p class="text-sm text-gray-600">كراج أختر وأولاده، منطقة صناعية، بوابة ١٦، شارع ١٩، الدوحة، قطر</p>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap">
+                        <button class="btn available-btn">🟢 AVAILABLE</button>
+                        <button class="btn price-btn">💰 VIEW PRICE</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="header-logo-container">
+                        <img src="Gemini_Generated_Image_uh7041uh7041uh70.png" alt="ASG Logo" class="card-logo">
+                        <div>
+                            <h2 class="text-2xl font-bold">Nissan Patrol Safari</h2>
+                            <p class="text-blue-200">2023 Model Year</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80" alt="Nissan Patrol Safari 2023" class="car-image">
+                    
+                    <div class="mt-6">
+                        <h3 class="font-bold text-lg mb-3 text-blue-800">Location:</h3>
+                        <p class="mb-1">Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
+                        <p class="text-sm text-gray-600">كراج أختر وأولاده، منطقة صناعية، بوابة ١٦، شارع ١٩، الدوحة، قطر</p>
+                    </div>
+                    
+                    <div class="mt-8 flex flex-wrap">
+                        <button class="btn available-btn">🟢 AVAILABLE</button>
+                        <button class="btn price-btn">💰 VIEW PRICE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="mt-12 text-center text-gray-600 pb-8">
+        <p>© 2026 Akhtar & Sons Garage. All rights reserved.</p>
+        <div class="mt-2">
+            <p>Street 19, Gate 16, Industrial Area, Doha, Qatar</p>
+            <p>Phone: +974 XXXXXXXX</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic interactive functionality
+        document.querySelectorAll('.thumbnail').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                const mainImg = this.closest('.card-body').querySelector('.car-image');
+                mainImg.src = this.dataset.full;
+            });
+        });
+    </script>
+</body>
+</html>
