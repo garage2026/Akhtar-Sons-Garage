@@ -115,6 +115,21 @@
             to { transform: rotate(360deg); }
         }
 
+        @keyframes whatsappPulse {
+            0% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                           0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                           0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                           0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -160,7 +175,7 @@
         }
 
         .logo {
-            max-width: 200px;
+            max-width: 220px;
             height: auto;
             margin-bottom: 20px;
             animation: float 3s ease-in-out infinite;
@@ -729,7 +744,76 @@
             font-size: 16px;
         }
 
-        /* Custom Scrollbar */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5),
+                        0 0 0 0 rgba(37, 211, 102, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+            animation: float 3s ease-in-out infinite, whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-button::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-button:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-button svg {
+            width: 38px;
+            height: 38px;
+            fill: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .whatsapp-button .tooltip {
+            position: absolute;
+            right: 75px;
+            background: linear-gradient(135deg, rgba(10, 17, 40, 0.95) 0%, rgba(30, 58, 95, 0.95) 100%);
+            color: #d4af37;
+            padding: 12px 20px;
+            border-radius: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .whatsapp-button:hover .tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+
         ::-webkit-scrollbar {
             width: 12px;
         }
@@ -765,13 +849,29 @@
             .modal-content {
                 padding: 30px 20px;
             }
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+
+            .whatsapp-button svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            .whatsapp-button .tooltip {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="logo.png" alt="Akhtar & Sons Garage" class="logo" id="garageLogo">
+            <img src="https://i.imgur.com/xPuN8z4.png" alt="Akhtar & Sons Garage" class="logo" id="garageLogo">
             <h1>Akhtar & Sons Garage</h1>
             <div class="location-badge">
                 📍 Industrial Area, Doha, Qatar
@@ -806,13 +906,15 @@
             <p>WhatsApp: +974 5524 1833</p>
             <p>Visit us at Industrial Area, Doha for quality vehicles and genuine spare parts</p>
         </div>
-        <a href="https://wa.me/97455241833" target="_blank" class="whatsapp-button">
-            <i class="fab fa-whatsapp"></i>
-            <span class="tooltip">Chat with us on WhatsApp</span>
-        </a>
     </div>
 
-    <!-- Login Modal -->
+    <a href="https://wa.me/97455241833" target="_blank" class="whatsapp-button">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.002 0h-.004C7.164 0 0 7.163 0 16c0 3.5 1.128 6.738 3.042 9.375L1.053 31.19l6.026-1.958C9.63 30.836 12.656 32 16.002 32 24.838 32 32 24.837 32 16S24.838 0 16.002 0zm9.45 22.703c-.397 1.118-1.974 2.045-3.228 2.314-.863.18-1.988.324-5.777-1.243-4.846-2.005-7.982-6.913-8.224-7.23-.24-.316-1.963-2.612-1.963-4.986 0-2.373 1.243-3.541 1.683-4.023.44-.482 1.002-.602 1.323-.602.321 0 .642.002.925.014.296.014.693-.112 1.084.825.397.948 1.359 3.32 1.478 3.562.12.241.2.523.04.84-.16.317-.24.514-.48.795-.24.28-.505.627-.72.84-.241.242-.492.504-.212.988.28.482 1.245 2.053 2.672 3.326 1.838 1.638 3.386 2.148 3.867 2.388.48.24.76.2 1.04-.12.28-.322 1.202-1.404 1.523-1.886.32-.482.64-.402 1.08-.24.44.16 2.792 1.316 3.272 1.557.48.24.8.362.92.562.12.2.12 1.158-.277 2.276z"/>
+        </svg>
+        <span class="tooltip">Chat with us on WhatsApp</span>
+    </a>
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <h2>Admin Login</h2>
@@ -827,7 +929,6 @@
         </div>
     </div>
 
-    <!-- Add/Edit Car Modal -->
     <div id="carModal" class="modal">
         <div class="modal-content">
             <h2 id="carModalTitle">Add New Car</h2>
@@ -865,7 +966,7 @@
                 </div>
                 <div class="form-group">
                     <label>Images (Max 5)</label>
-                    <input type="file" id="carImages" accept="image/*" multiple capture="environment">
+                    <input type="file" id="carImages" accept="image/*" multiple>
                     <div id="carImagePreview" class="image-preview"></div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -876,7 +977,6 @@
         </div>
     </div>
 
-    <!-- Add/Edit Part Modal -->
     <div id="partModal" class="modal">
         <div class="modal-content">
             <h2 id="partModalTitle">Add New Spare Part</h2>
@@ -933,7 +1033,7 @@
                 </div>
                 <div class="form-group">
                     <label>Images (Max 5)</label>
-                    <input type="file" id="partImages" accept="image/*" multiple capture="environment">
+                    <input type="file" id="partImages" accept="image/*" multiple>
                     <div id="partImagePreview" class="image-preview"></div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -945,11 +1045,9 @@
     </div>
 
     <script>
-        // Configuration
         const CONFIG = {
             DEFAULT_PASSWORD: 'admin123',
-            WHATSAPP_NUMBER: '97455241833',
-            DEFAULT_LOGO: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 200 80"><text x="10" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="%23d4af37">Akhtar %26 Sons</text></svg>'
+            WHATSAPP_NUMBER: '97455241833'
         };
 
         let isAdminMode = false;
@@ -957,7 +1055,6 @@
         let editingPartId = null;
         let currentTab = 'cars';
 
-        // LocalStorage helpers
         function getCars() {
             const data = localStorage.getItem('garage_cars');
             return data ? JSON.parse(data) : [];
@@ -976,26 +1073,13 @@
             localStorage.setItem('garage_parts', JSON.stringify(parts));
         }
 
-        function getLogo() {
-            return localStorage.getItem('garage_logo') || CONFIG.DEFAULT_LOGO;
-        }
-
-        function saveLogo(logo) {
-            localStorage.setItem('garage_logo', logo);
-        }
-
-        // Initialize app
         function initApp() {
             const cars = getCars();
             const parts = getParts();
-            const logo = getLogo();
-
             renderCars(cars);
             renderParts(parts);
-            document.getElementById('garageLogo').src = logo;
         }
 
-        // Tab switching
         function switchTab(tab) {
             currentTab = tab;
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -1005,7 +1089,6 @@
             document.getElementById(tab + 'Tab').classList.add('active');
         }
 
-        // Render cars
         function renderCars(cars) {
             const grid = document.getElementById('carsGrid');
             if (cars.length === 0) {
@@ -1043,7 +1126,6 @@
             `).join('');
         }
 
-        // Render parts
         function renderParts(parts) {
             const grid = document.getElementById('partsGrid');
             if (parts.length === 0) {
@@ -1083,7 +1165,6 @@
             `).join('');
         }
 
-        // Image navigation
         function changeImage(cardIdx, direction, type) {
             const grid = type === 'car' ? document.getElementById('carsGrid') : document.getElementById('partsGrid');
             const card = grid.children[cardIdx];
@@ -1096,18 +1177,15 @@
             images[currentIdx].classList.add('active');
         }
 
-        // Format price
         function formatPrice(price) {
             return new Intl.NumberFormat('en-QA').format(price);
         }
 
-        // WhatsApp contact
         function contactWhatsApp(type, itemName) {
             const message = encodeURIComponent(`Hello! I'm interested in the ${type === 'car' ? 'car' : 'spare part'}: ${itemName}`);
             window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${message}`, '_blank');
         }
 
-        // Modal functions
         function showLoginModal() {
             document.getElementById('loginModal').classList.add('active');
         }
@@ -1137,7 +1215,6 @@
             initApp();
         }
 
-        // Car CRUD
         function showAddCarModal() {
             editingCarId = null;
             document.getElementById('carModalTitle').textContent = 'Add New Car';
@@ -1205,7 +1282,6 @@
             alert('Car saved successfully!');
         }
 
-        // Part CRUD
         function showAddPartModal() {
             editingPartId = null;
             document.getElementById('partModalTitle').textContent = 'Add New Spare Part';
@@ -1275,7 +1351,6 @@
             alert('Spare part saved successfully!');
         }
 
-        // Image upload handler
         async function handleImageUpload(inputId) {
             const input = document.getElementById(inputId);
             const files = Array.from(input.files);
@@ -1300,7 +1375,6 @@
             return images;
         }
 
-        // Image preview
         document.getElementById('carImages').addEventListener('change', async function() {
             const preview = document.getElementById('carImagePreview');
             preview.innerHTML = '';
@@ -1325,7 +1399,6 @@
             });
         });
 
-        // Initialize on load
         window.addEventListener('load', initApp);
     </script>
 </body>
